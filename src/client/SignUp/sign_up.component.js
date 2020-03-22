@@ -91,7 +91,7 @@ const SignUp = () => {
                     type='submit'
                     onSubmit={handleSubmit}
                 />
-                <Link className="link-to-login" to="../LogIn/log_in.component.js">Already registered? Click here to log in</Link>
+                <Link className="link-to-login" to="/login">Already registered? Click here to log in</Link>
             </form>
         </Paper>
     )

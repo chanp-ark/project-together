@@ -24,12 +24,21 @@ const CreateNewProjectForm = () => {
     
     const handleSubmit = e => {
         e.preventDefault()
-        if (typeof e.target.maxCap !== "number") {
+        let mcToInt = parseInt(e.target.maxCap.value)
+        
+        if (isNaN(mcToInt)) {
             alert("You must enter a number")
             setProjectInfo({
                 ...projectInfo,
                 maxCap: '',
             })
+        } else if (mcToInt < 2 || mcToInt >6) {
+            alert("You must enter a number between 2 and 6")
+            setProjectInfo({
+                ...projectInfo,
+                maxCap: '',
+            })  
+            
         } else {
             // send data to back end
             setProjectInfo({

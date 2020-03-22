@@ -58,7 +58,7 @@ const LogIn = () => {
                     value="Log In"
                     type="submit"
                 />
-                <Link className="link-to-signup" to="../SignUp/sign_up.component.js">Not registered? Click here to sign up</Link>
+                <Link className="link-to-signup" to="/signup">Not registered? Click here to sign up</Link>
             </form>
         </Paper>
     )

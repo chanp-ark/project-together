@@ -4,13 +4,13 @@
     justify-content: center;
     margin: 2em auto;
     max-width: 600px;
-    height: 490px;
+    height: 550px;
 }
 
 .new-project-header {
     display: flex;
     flex-direction: column;
-    margin: 0.3em auto;
+    margin: 1em auto 0.3em auto;
     border: 2px solid gainsboro;
     padding: 0.2em 1em;
 }
