@@ -1,5 +1,4 @@
 import React from 'react'
-import { Paper } from '@material-ui/core';
 
 import "./create-form.styles.css"
 
@@ -53,7 +52,7 @@ const CreateNewProjectForm = () => {
     }
     
     return (
-        <Paper className="new-project-container" elevation={3}>
+        <div className="new-project-container" elevation={3}>
             <h2 className="new-project-header">Create a New Project</h2>
             <form onSubmit={handleSubmit}>
                 <label className="new-project-label">Project Name</label>
@@ -102,7 +101,7 @@ const CreateNewProjectForm = () => {
                     onSubmit={handleSubmit}
                 />
             </form>
-        </Paper>
+        </div>
     )
 }
 
