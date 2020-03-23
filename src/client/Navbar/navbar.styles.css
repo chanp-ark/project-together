@@ -18,8 +18,13 @@ header::after {
     clear: both;
 }
 
-.home-icon {
+.home-icon div {
     float: left;
+    padding: 1em;
+}
+
+.home-icon div:hover {
+    color: black;
 }
 
 .container a {
@@ -72,5 +77,5 @@ nav a:after {
 
 nav a:hover::after {
     width:100%;
-    transition: all 220ms ease-in-out
+    transition : all 220ms ease-in-out
 }

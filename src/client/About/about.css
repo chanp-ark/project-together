@@ -5,6 +5,11 @@
     flex-direction: column;
 }
 
+.about-subtitle {
+    text-transform: uppercase;
+    
+}
+
 .about-container img {
     margin: 1em;
     width: 70%;

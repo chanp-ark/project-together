@@ -1,5 +1,4 @@
 import React from 'react'
-import { Paper } from '@material-ui/core'
 import { Link } from "react-router-dom"
 
 import "./sign_up.styles.css"
@@ -43,7 +42,7 @@ const SignUp = () => {
     }
     
     return (
-        <Paper className="signup-container" elevation={3}>
+        <div className="signup-container" elevation={3}>
             <h2 className="signup-header">SIGN UP</h2>
             <form onSubmit={handleSubmit}>
                 <label className="signup-label">Username</label>
@@ -93,7 +92,7 @@ const SignUp = () => {
                 />
                 <Link className="link-to-login" to="/login">Already registered? Click here to log in</Link>
             </form>
-        </Paper>
+        </div>
     )
 }
 

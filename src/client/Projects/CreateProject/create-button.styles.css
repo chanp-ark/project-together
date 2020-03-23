@@ -1,6 +1,6 @@
 .button-container {
-    float: right;
-    margin: 0;
+    margin: 1em 0;
+    text-align: center;
 }
 
 .button-submit {
@@ -15,15 +15,18 @@
 
 .button-submit:hover {
     background-color:#0077FF;
-    color: white;
     transition: all ease-in-out 200ms;
-    border: none;
+    border: 1px solid white;
 }
 
 .button-submit a {
     text-decoration: none;
     color: black;
     font-weight: 600;
+}
+
+.button-submit a:hover {
+    color: white;
 }
 
 

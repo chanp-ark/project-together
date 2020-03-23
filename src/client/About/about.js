@@ -5,7 +5,7 @@ import "./about.css"
 const About = () => {
     return (
         <div className="about-container">
-            <div className="about-title">Project Together</div>
+            <div className="about-title">P<span className="about-subtitle">roject</span> T<span className="about-subtitle">ogether</span></div>
             <div className="about-motto">Going Further Faster Together</div>
             <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80" />
             <div className="about-description">
