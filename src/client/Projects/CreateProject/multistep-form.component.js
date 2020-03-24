@@ -37,6 +37,8 @@ const MultiStepForm = () => {
             description: '',
             maxCap: '',
             trackStep: 0,
+            trackPrev: 0,
+            trackNext: 0
         })
     }
     

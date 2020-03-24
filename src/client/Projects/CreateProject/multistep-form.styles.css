@@ -100,9 +100,19 @@
     border-radius: 10px;
     background-color: #0077FE;
     color: white;
-    opacity: 0.8;
+    opacity: 0.8;   
     
-   
+    transition: all 150ms ease-in-out
+}
+
+.prevNext:hover {
+    transform: scale(1.1);
+    transition : all 150ms ease-in-out;
+    opacity: 1;
+}
+
+.prevNext:focus{
+    outline:none
 }
 
 .step {
@@ -136,11 +146,14 @@
     width: 80px;
     font-size: 14px;
     border-radius: 10px;
+    
+    transition: all 220ms ease-in-out
 }
 
 .multi-submit:hover {
     transform: scale(1.2);
-    transition : all 220ms ease-in-out
+    transition : all 220ms ease-in-out;
+
 }
 
 .multi-submit:focus {
