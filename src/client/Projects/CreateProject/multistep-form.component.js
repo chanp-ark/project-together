@@ -8,12 +8,15 @@ const MultiStepForm = () => {
         projectName: '',
         techStack: '',
         description: '',
-        maxCap: ''        
+        maxCap: '',
+        trackStep: 0,
+        trackPrev: 0,
+        trackNext: 0
     }
 
     const [ project, setProject ] = React.useState(initialState)
     
-    const {projectName, techStack, description, maxCap} = project
+    const {projectName, techStack, description, maxCap, trackStep, trackPrev, trackNext} = project
     
     const handleChange = e => {
         e.preventDefault()
@@ -29,26 +32,66 @@ const MultiStepForm = () => {
         console.log(project)
         // update db
         setProject({
-            
+            projectName: '',
+            techStack: '',
+            description: '',
+            maxCap: '',
+            trackStep: 0,
         })
     }
     
-    // current tab starting as the initial tab
+    const fields = [
+        <div className="tab" key="projectName">
+            <label className="tab-label">Project Name</label>
+            <input 
+                type="text"
+                name="projectName"
+                value={projectName}
+                onChange={handleChange}
+                placeholder="name of project"
+                required
+            />
+        </div>
+        ,
+        <div className="tab" key="techStack">
+            <label className="tab-label">Tech Stack</label>
+            <input 
+                type="text"
+                name="techStack"
+                value={techStack}
+                onChange={handleChange}
+                placeholder="tech stack"
+                required
+            />
+        </div>
+        ,
+        <div className="tab" key="project-description">
+            <label className="tab-label">Description</label>
+            <input 
+                type="text"
+                name="description"
+                value={description}
+                onChange={handleChange}
+                placeholder="brief description of your project"
+                required
+            />
+        </div>
+        ,
+        <div className="tab" key="maxCap">
+            <label className="tab-label">Max Number of Collaborators</label>
+            <select id="maxCap" name="maxCap" onChange={handleChange}required>
+                <option value="0">Any</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+            </select>
+        </div>
+    ]
+    
+   
 
-    
-    // display current tab
-    
-    // create function 'showTab' that will displayed the specified tab 
-        // grab class
-        
-    // don't need validations because of "required"
-    
-    
-    // when pressing next, update state
-    
-    const prevNext = () => {
-        console.log(document.getElementsByClassName("tab"))
-    }
     
     return (
         <form className="multi-container" onSubmit={handleSubmit}>
@@ -65,80 +108,68 @@ const MultiStepForm = () => {
                     <span className="step"></span>
                 </div>
                 
+                {
+                   fields.filter( (curTab, i) => i === project.trackStep)
+                }
                 
-                <div className="tab">
-                    <label className="tab-label">Project Name</label>
-                    <input 
-                        type="text"
-                        name="projectName"
-                        value={projectName}
-                        onChange={handleChange}
-                        placeholder="name of project"
-                        required
-                    />
+                <div className="prevNext-container">
+                    
+                    {
+                        (trackPrev <= fields.length && trackPrev > 0) &&
+                            <button 
+                                className="prevNext" 
+                                value={trackPrev}
+                                key="prevButton"
+                                onClick={ e => {
+                                    e.preventDefault();
+                                    if (trackStep <= fields.length && trackStep > 0) {
+                                        setProject({
+                                            ...project,
+                                            trackStep: project.trackStep -= 1,
+                                            trackNext: project.trackNext -= 1,
+                                            trackPrev: project.trackPrev -= 1,
+                                        })
+                                        console.log(project)
+                                }}}>
+                                    Prev
+                            </button>
+                    }
+                    
+                    {
+                        trackNext < fields.length && 
+                            <button 
+                                className="prevNext"
+                                key="nextButton"
+                                value={trackStep}
+                                onClick={ e => {
+                                    e.preventDefault();
+                                    if (trackStep < fields.length) {
+                                        setProject({
+                                            ...project,
+                                            trackStep: project.trackStep += 1,
+                                            trackNext: project.trackNext +=1,
+                                            trackPrev: project.trackPrev +=1,
+                                        
+                                        })
+                                        console.log(project)
+                                    }
+                                }}>
+                                    Next
+                            </button>
+                    }
                 </div>
                 
-                <div className="tab">
-                    <label className="tab-label">Tech Stack</label>
-                    <input 
-                        type="text"
-                        name="techStack"
-                        value={techStack}
-                        onChange={handleChange}
-                        placeholder="tech stack"
-                        required
-                    />
-                </div>
+                {
+                    trackStep === fields.length &&
+                        <input
+                            className="multi-submit" 
+                            type="submit"
+                        />
+                }
                 
-                <div className="tab">
-                    <label className="tab-label">Description</label>
-                    <input 
-                        type="text"
-                        name="description"
-                        value={description}
-                        onChange={handleChange}
-                        placeholder="brief description of your project"
-                        required
-                    />
-                </div>
                 
-                <div className="tab">
-                    <label className="tab-label">Max Number of Collaborators</label>
-                    <select id="maxCap" name="maxCap" onChange={handleChange}required>
-                        <option value="0">Any</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                    </select>
-                </div>
-                
-                <div className="prevNext">
-                    <button 
-                        id="prevBtn" 
-                        onClick={e => {
-                            e.preventDefault();
-                            prevNext()
-                            }
-                        }>
-                            Prev
-                        </button>
-                    <button 
-                        id="nextBtn" 
-                        onClick={e => {
-                            e.preventDefault();
-                            prevNext()
-                            }
-                        }>
-                            Next
-                        </button>
-                </div>
                
-                <input
-                    className="multi-submit" 
-                    type="submit"
-                />
+                
             </div>
             
         </form>
