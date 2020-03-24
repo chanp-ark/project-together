@@ -35,7 +35,6 @@ const MultiStepForm = () => {
     
     // current tab starting as the initial tab
 
-    const [currentTab, setCurrentTab] = React.useState('show-tab-1')
     
     // display current tab
     
@@ -45,6 +44,8 @@ const MultiStepForm = () => {
     // don't need validations because of "required"
     
     
+    // when pressing next, update state
+    
     const prevNext = () => {
         console.log(document.getElementsByClassName("tab"))
     }
@@ -53,6 +54,16 @@ const MultiStepForm = () => {
         <form className="multi-container" onSubmit={handleSubmit}>
             
             <div className="multi-subcontainer">
+                 
+                <div className="multi-tracker">
+                    <span className="step-active"></span>
+                    <span className="line"></span>
+                    <span className="step"></span>
+                    <span className="line"></span>
+                    <span className="step"></span>
+                    <span className="line"></span>
+                    <span className="step"></span>
+                </div>
                 
                 
                 <div className="tab">
@@ -123,17 +134,7 @@ const MultiStepForm = () => {
                             Next
                         </button>
                 </div>
-                
-                <div className="multi-tracker">
-                    <span className="step"></span>
-                    <span className="line"></span>
-                    <span className="step"></span>
-                    <span className="line"></span>
-                    <span className="step"></span>
-                    <span className="line"></span>
-                    <span className="step"></span>
-                </div>
-                
+               
                 <input
                     className="multi-submit" 
                     type="submit"

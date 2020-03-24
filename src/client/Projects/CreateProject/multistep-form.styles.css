@@ -93,8 +93,8 @@
 }
 
 .step-active{
-    height: 20px;
-    width: 20px;
+    height: 16px;
+    width: 16px;
     margin: auto;
     background: #0077FF;
     border-radius: 50%;
