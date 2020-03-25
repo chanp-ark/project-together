@@ -2,13 +2,15 @@ import React from 'react'
 
 import "./thumbnail.styles.css"
 
-const Thumbnail = ( {name, tech_stack, curCap, maxCap} ) => {
+const Thumbnail = ( {projectName, techStack, description, curCap, maxCap} ) => {
     return (
         <div className="thmnl-container">
             <div className="thmnl-project">
-                <div className="thmnl-name">{name}</div>
+                <div className="thmnl-name">{projectName}</div>
                 <div className="thmnl-title">Tech Stack</div>
-                    <p>{tech_stack}</p>
+                    <p>{techStack}</p>
+                <div className="thmnl-title">Description</div>
+                    <p>{description}</p>
                 <div className="thmnl-title">Current Number of Collaborators</div>
                     <p>{curCap}</p>
                 <div className="thmnl-title">Maximum Capacity</div>
