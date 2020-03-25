@@ -1,52 +1,62 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom';
 
 import "./multistep-form.styles.css"
 
-const MultiStepForm = () => {
+const MultiStepForm = ({routeProps, projects, setProjects}) => {
     
+    // state of form
     const initialState = {
         projectName: '',
-        techStack: 'MongoDB Express React Node',
-        description: 'we gun make something great',
-        maxCap: 'Any',
-        trackStep: 0,
+        techStack: '',
+        description: '',
+        curCap: 1,
+        maxCap: '',
+        users: ['current user']
     }
 
-    const [ project, setProject ] = React.useState(initialState)
+    const [ projectInfo, setProjectInfo ] = React.useState(initialState)
     
-    const {projectName, techStack, description, maxCap, trackStep} = project
+    const {projectName, techStack, description, maxCap} = projectInfo
+    
+    // tracker for this form
+    const [trackStep, setTrackStep] = React.useState(0)
     
     const handleChange = e => {
         e.preventDefault()
-        setProject({
-            ...project,
+        setProjectInfo({
+            ...projectInfo,
             [e.target.name]: e.target.value
         })
     }
     
     const handleSubmit = e => {
         e.preventDefault()
-        console.log(project)
-        for (let i in project) {
-            if (project[i] === '') {
+        console.log(projectInfo)
+        for (let i in projectInfo) {
+            if (projectInfo[i] === '') {
                 alert (`${i} is required`)
                 return false
             }
         }
         // update db
         
+        // update state
+        setProjects([
+            ...projects,
+            projectInfo
+        ])
+        routeProps.history.push("/projects")
         // reset state
-        setProject({
-            projectName: '',
-            techStack: '',
-            description: '',
-            maxCap: '',
-            trackStep: 0,
-        })
-        return <Redirect to="/projects" />
+        // setProjectInfo({
+        //     projectName: '',
+        //     techStack: '',
+        //     description: '',
+        //     maxCap: '',
+        //     trackStep: 0,
+        // })
     }
-   
+    
+    // form components
     const fields = [
         <div className="tab" key="projectName">
             <label className="tab-label">Project Name</label>
@@ -96,7 +106,7 @@ const MultiStepForm = () => {
                 onKeyPress={ e => {
                     if (e.key === "Enter") next()
                     }}> 
-                <option value="0">Any</option>
+                <option value="0">-</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
                 <option value="4">4</option>
@@ -106,13 +116,11 @@ const MultiStepForm = () => {
         </div>
     ]
     
+    // next and previous buttons
     const next = () => {
         if (trackStep < fields.length) {
-            setProject({
-                ...project,
-                trackStep: project.trackStep += 1,
-            
-            })
+            setProjectInfo({...projectInfo})
+            setTrackStep(trackStep+1)
             let curStep = document.getElementById(`${trackStep+1}`)
             let classes = curStep.classList;
             classes.add("step-active")  
@@ -121,17 +129,15 @@ const MultiStepForm = () => {
         
     const prev = () => {
         if (trackStep <= fields.length && trackStep > 0) {
-            setProject({
-                ...project,
-                trackStep: project.trackStep -= 1,
-            })
+            setProjectInfo({...projectInfo})
+            setTrackStep(trackStep-1)
         }
         let curStep = document.getElementById(`${trackStep}`)
         let classes = curStep.classList;
         classes.remove("step-active")
     }
     
-        
+    // track each step
     const stepTracker = [
         <span key="step1"className="step step-active" id="0" ></span>,
         <span key="line1"className="line"></span>,
@@ -157,7 +163,7 @@ const MultiStepForm = () => {
                 </div>
                 
                 {
-                   fields.filter( (curTab, i) => i === project.trackStep)
+                   fields.filter( (curTab, i) => i === trackStep)
                 }
                 
                 {
