@@ -6,7 +6,7 @@ import SignUp from "./client/SignUp/sign_up.component";
 import LogIn from "./client/LogIn/log_in.component"
 import About from "./client/About/about";
 import Projects from "./client/Projects/projects"
-import CreateNewProjectForm from "./client/Projects/CreateProject/create-form.component"
+import MultiStepForm from './client/Projects/CreateProject/multistep-form.component';
 
 const Main = () => {
     return (
@@ -15,7 +15,7 @@ const Main = () => {
                 <Route exact path='/' component={Home} />
                 <Route exact path='/about' component={About} />
                 <Route exact path='/projects' component={Projects} />
-                <Route exact path='/projects/new' component={CreateNewProjectForm} />
+                <Route exact path='/projects/new' component={MultiStepForm} />
                 <Route exact path='/signup' component={SignUp} />
                 <Route exact path='/login' component={LogIn} />
             </Switch>
