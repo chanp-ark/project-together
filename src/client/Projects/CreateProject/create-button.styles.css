@@ -4,7 +4,7 @@
 }
 
 .button-submit {
-    padding: 1em;
+    padding: 1em 0.6em;
     border-radius: 10px;
     border: 1px solid black;
 }
@@ -23,6 +23,7 @@
     text-decoration: none;
     color: black;
     font-weight: 600;
+    padding: 1em;
 }
 
 .button-submit a:hover {
