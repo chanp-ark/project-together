@@ -6,38 +6,31 @@ import "./navbar.styles.css"
 
 const Navbar = () => {
   
-  const [toggle, setToggle] = React.useState(false)
+  const [toggle, setToggle] = React.useState(true)
   
-  const handleClick = e => {
-    e.preventDefault()
+  const handleToggle = e => {
+    e.preventDefault(0);
     setToggle(!toggle)
-    console.log(toggle)
   }
   
   return (
     <header className="navbar">
       <div className="navbar-container">
-        <Link className="home-icon" to='/'><div>P \ T</div></Link>
+        <Link className="home-icon" to='/' 
+          onClick={() => {
+            if (toggle === false) setToggle(!toggle)
+            }
+          }> <div>P \ T</div></Link>
         <nav className="navbar-nav">
-              <div>
-                <li className="navbar-icon">
-                  <NavLink
-                    to="#"
-                    onClick={e=>handleClick(e)}
-                  >ICON</NavLink>
-                </li>
-              </div>
-              <ul className="navbar-ul">
-              <div className={toggle ? "navbar-others" : "navbar-others dropdown-navbar"}>
-                <li><Link to='/login'>Login</Link></li>
-                <li><Link to='/projects'>Projects</Link></li>
-                <li><Link to='/about'>About</Link></li>
-                
-              </div>
-              
+          <ul className="navbar-ul">
+            <li className="dropdown-icon"><Link to="#" onClick={e=>handleToggle(e)}>ICON</Link></li>
+            <div className={toggle ? "navbar-others" : "dropdown-navbar"}>
+              <li><Link onClick={() => setToggle(!toggle)} to='/login'>Login</Link></li>
+              <li><Link onClick={() => setToggle(!toggle)} to='/projects'>Projects</Link></li>
+              <li><Link onClick={() => setToggle(!toggle)} to='/about'>About</Link></li>
+            </div>
           </ul>
         </nav>
-        
       </div>
     </header>
   )
