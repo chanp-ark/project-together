@@ -3,13 +3,13 @@ body {
 	font-weight: 800;
 }
 
-.container {
-    width: 86%;
-	margin: 0 auto;
-}
-
 header {
     background: #0077FF;
+}
+
+.navbar-container {
+    width: 86%;
+	margin: 0 auto;
 }
 
 header::after {
@@ -21,6 +21,7 @@ header::after {
 .home-icon div {
     float: left;
     padding: 1em;
+    color: white;
 }
 
 .home-icon div:hover {

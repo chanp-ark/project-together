@@ -89,6 +89,7 @@ const MultiStepForm = ({routeProps, projects, setProjects}) => {
             <label className="tab-label">Description</label>
             <input 
                 type="text"
+                // add overflow:scroll into css
                 name="description"
                 autoFocus={true}
                 value={description}
