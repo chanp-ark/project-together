@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/project-together-frontend/static/css/main.c54d52d5.chunk.css",
+    "main.js": "/project-together-frontend/static/js/main.13f5c722.chunk.js",
+    "main.js.map": "/project-together-frontend/static/js/main.13f5c722.chunk.js.map",
+    "runtime-main.js": "/project-together-frontend/static/js/runtime-main.e878e4db.js",
+    "runtime-main.js.map": "/project-together-frontend/static/js/runtime-main.e878e4db.js.map",
+    "static/js/2.2a8a1c9e.chunk.js": "/project-together-frontend/static/js/2.2a8a1c9e.chunk.js",
+    "static/js/2.2a8a1c9e.chunk.js.map": "/project-together-frontend/static/js/2.2a8a1c9e.chunk.js.map",
+    "index.html": "/project-together-frontend/index.html",
+    "precache-manifest.ae6e8e1fdc1411a5ec9cbce8a6e693c3.js": "/project-together-frontend/precache-manifest.ae6e8e1fdc1411a5ec9cbce8a6e693c3.js",
+    "service-worker.js": "/project-together-frontend/service-worker.js",
+    "static/css/main.c54d52d5.chunk.css.map": "/project-together-frontend/static/css/main.c54d52d5.chunk.css.map",
+    "static/js/2.2a8a1c9e.chunk.js.LICENSE.txt": "/project-together-frontend/static/js/2.2a8a1c9e.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.e878e4db.js",
+    "static/js/2.2a8a1c9e.chunk.js",
+    "static/css/main.c54d52d5.chunk.css",
+    "static/js/main.13f5c722.chunk.js"
+  ]
+}
