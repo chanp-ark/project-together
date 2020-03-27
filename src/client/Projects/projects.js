@@ -1,10 +1,10 @@
-import React from 'react'
+import React from 'react';
 
 import Thumbnail from "./Thumbnails/thumbnail.component"
 import CreateProject from "./CreateProject/create-button.component"
 import "./project.css"
 
-const Projects = ({projects, setProjects}) => {
+const Projects = ({projects}) => {
 
     return (
         <div className="project-container">

@@ -4,7 +4,11 @@ body {
 }
 
 header {
-    background: #0077FF;
+  background: #0077FF;
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  top: 0;
 }
 
 .navbar-container {
@@ -77,6 +81,7 @@ nav a:hover::after {
 
 
 @media screen and (max-width: 600px) {
+    
     .dropdown-icon {
         display: inline-block;
         margin: 0;
@@ -98,6 +103,7 @@ nav a:hover::after {
     .home-icon div {
         top: 0;
         left: 0;
+        padding-left: 0;
     }
     
     .navbar-others {

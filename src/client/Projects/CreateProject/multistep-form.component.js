@@ -46,14 +46,6 @@ const MultiStepForm = ({routeProps, projects, setProjects}) => {
             projectInfo
         ])
         routeProps.history.push("/projects")
-        // reset state
-        // setProjectInfo({
-        //     projectName: '',
-        //     techStack: '',
-        //     description: '',
-        //     maxCap: '',
-        //     trackStep: 0,
-        // })
     }
     
     // form components
