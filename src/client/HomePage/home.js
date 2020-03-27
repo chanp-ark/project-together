@@ -1,13 +1,13 @@
 import React from 'react';
 
-import LogIn from "../LogIn/log_in.component"
+import SignUp from "../SignUp/sign_up.component"
 
 // for now, go directly to login
 
 const Home = () => {
     return (
         <div>
-           <LogIn /> 
+           <SignUp /> 
         </div>
         
     )

@@ -46,14 +46,6 @@ const MultiStepForm = ({routeProps, projects, setProjects}) => {
             projectInfo
         ])
         routeProps.history.push("/projects")
-        // reset state
-        // setProjectInfo({
-        //     projectName: '',
-        //     techStack: '',
-        //     description: '',
-        //     maxCap: '',
-        //     trackStep: 0,
-        // })
     }
     
     // form components
@@ -89,6 +81,7 @@ const MultiStepForm = ({routeProps, projects, setProjects}) => {
             <label className="tab-label">Description</label>
             <input 
                 type="text"
+                // add overflow:scroll into css
                 name="description"
                 autoFocus={true}
                 value={description}

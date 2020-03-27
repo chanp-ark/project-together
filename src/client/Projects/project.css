@@ -1,6 +1,8 @@
 .project-container {
-    margin: 4em auto;
-    width: 85%;
+    display: block;
+    margin: 1em auto;
+    text-align: center;
+    width: 100%;
 }
 
 .project-title {
@@ -8,11 +10,6 @@
     font-size: 2.8em;
     font-weight: 600;
     text-transform: uppercase;
-    padding: 0;
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%, -50%)
-
 }
 
 .project-title::after {
